@@ -1,13 +1,47 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-portfolio</title>
+    <link rel="stylesheet" href="src/style/destyle.css">
+    <link rel="stylesheet" href="src/style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+      
+      /* .info{position:fixed;left:12px;top:12px;color:#cfd8ff;font-family:monospace;background:rgba(0,0,0,0.25);padding:8px;border-radius:6px} */
+      </style>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <canvas id="glcanvas"></canvas>
+    <div class="wrapper">
+    <header class="header">
+      <nav class="nav__group" style="display: inline-block;">
+        <ul class="nav__item">
+          <li class="nav__list"><a href="" class="nav__link">ABOUT</a></li>
+          <li class="nav__list"><a href="" class="nav__link">PORTFOLIO</a></li>
+          <li class="nav__list"><a href="" class="nav__link">CREATIVE</a></li>
+          <li class="nav__list"><a href="" class="nav__link">SNS</a></li>
+        </ul>
+      </nav>
+      <h1 class="title">My<br>Portfolio</h1>
+    </header>
+    <main class="main">
+      <div class="about__content">
+        <h2 class="about__heading">About</h2>
+        <div class="about__item">
+          <img src="src/javascript.svg" alt="" width="300" height="300">
+          <div class="about__group">
+          <h3 class="about__name">名前</h3>
+          <p class="about__text">本文はここに入ります。本文はここに入ります。本文はここに入ります。本文はここに入ります。本文はここに入ります。本文はここに入ります。本文はここに入ります。本文はここに入ります。本文はここに入ります。本文はここに入ります。本文はここに入ります。</p>
+          </div><!-- about__group -->
+        </div><!-- about__item -->
+      </div><!-- about__content -->
+    </main>
+    </div><!-- wrapper -->
+  <script type="module" src="/src/scripts/main.js"></script>
   </body>
 </html>
