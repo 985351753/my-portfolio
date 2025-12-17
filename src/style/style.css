@@ -7,4 +7,6 @@ body {
 /* Three.jsが生成するCanvas要素の設定 */
 canvas {
   display: block; /* 予期しない下部のスペースを削除 */
+  /* width: 100%;
+  height: 100%; */
 }
