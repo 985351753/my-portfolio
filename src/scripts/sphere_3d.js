@@ -1,11 +1,3 @@
-
-// Single-file WebGL2 example: 10 instanced spheres sharing geometry buffers.
-// Features:
-// - Shared vertex/index buffers for sphere geometry (GPU load reduction)
-// - Per-instance attributes (position+scale, color) updated each frame with bufferSubData
-// - Simple CPU physics: random velocities, boundary bounce, sphere-sphere elastic collisions
-// - GLSL vertex+fragment shaders (written below)
-
 const NUM = 10;
 const BOUNDS = 6.0; // world box half-extent
 
@@ -13,11 +5,35 @@ const canvas = document.getElementById('glcanvas');
 const gl = canvas.getContext('webgl2');
 if (!gl) { alert('This demo requires WebGL2'); }
 
-function resize(){
-  canvas.width = Math.floor(canvas.clientWidth * devicePixelRatio);
-  canvas.height = Math.floor(canvas.clientHeight * devicePixelRatio);
-  gl.viewport(0,0,canvas.width,canvas.height);
+// --- JSでスタイルを強制的に適用 ---
+function applyFullscreenStyles() {
+  // bodyの余白を消し、スクロールを防ぐ
+  document.body.style.margin = "0";
+  document.body.style.padding = "0";
+  document.body.style.overflow = "hidden";
+  document.body.style.backgroundColor = "#f3f3f3"; // 背景色をクリアカラーに合わせる
+
+  // canvasを画面いっぱいに固定
+  canvas.style.position = "fixed";
+  canvas.style.left = "0";
+  canvas.style.top = "0";
+  canvas.style.width = "100vw";
+  canvas.style.height = "100vh";
+  canvas.style.display = "block";
 }
+
+function resize(){
+  // clientWidthではなく、windowの内寸を基準にする
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  
+  canvas.width = Math.floor(width * window.devicePixelRatio);
+  canvas.height = Math.floor(height * window.devicePixelRatio);
+  gl.viewport(0, 0, canvas.width, canvas.height);
+}
+
+// 初期実行
+applyFullscreenStyles();
 window.addEventListener('resize', resize);
 resize();
 

@@ -229,7 +229,7 @@
 // // スクリプトが読み込まれたら初期化処理を開始
 // init();
 
-
+import * as THREE from 'three';
 // スフィアの数を定義
 const SPHERE_COUNT = 10;
 // スフィアが跳ね返る境界の大きさ
