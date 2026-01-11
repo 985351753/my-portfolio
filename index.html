@@ -17,11 +17,69 @@
     <!-- <script src="src/scripts/plain_Bruno-Simon-tutorial.js" type="module"></script> -->
     <!-- <script src="src/scripts/plain_moving-circle.js" type="module"></script> -->
     <!-- <script src="src/scripts/plain_gradation.js" type="module"></script> -->
-    <script>
+    <!-- <script>
     window.isWebGLDev = true;
     </script>
     <div id="webgl-container">
-    </div>
-    <script src="src/js/main.js" type="module"></script>
+    </div> -->
+    <header class="header">
+        <nav>
+            <ul>
+                <li>
+                    <a href="">
+                    <p class="header__nav-item">GALLERY</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    <p class="header__nav-item">ABOUT</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    <p class="header__nav-item">CONTACT</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1 class="hero__heading">
+            <span class="js-split hero__heading-text">
+                Hello
+            </span>
+            <span class="js-split hero__heading-text">
+                World
+            </span>
+        </h1>
+        <p class="hero__smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.(ウィンドウサイズを取得してbottom10くらいに置きたい)</p>
+    </section>
+    <section class="about">
+        <h2>ABOUT</h2>
+        <div class="about__item">
+            <div class="about__image"></div>
+            <div class="about__text">
+                <h3>SHIZUKA</h3>
+                <p class="about__p">orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+            </div>
+        </div>
+
+    </section>
+    <section class="gallery">
+        <div class="gallery__image" style="--index: 1;"></div>
+        <div class="gallery__image" style="--index: 2;"></div>
+        <div class="gallery__image" style="--index: 3;"></div>
+        <div class="gallery__image" style="--index: 3;"></div>
+        <div class="gallery__image" style="--index: 3;"></div>
+    </section>
+
+    <footer class="footer">
+        <a href="">Instagram</a>
+        <a href="">X</a>
+    </footer>
+    
+    <script src="src/scripts/spilitText.js" type="module"></script>
+    <!-- <script src="src/js/main.js" type="module"></script> -->
 </body>
 </html>
