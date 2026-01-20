@@ -1,13 +1,113 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>my-portfolio</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js スフィア浮遊デモ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="src/style/destyle.css">
+    <link rel="stylesheet" href="src/style/style.css">
+</head>
+<body>
+    <!-- <canvas id="glcanvas"></canvas>
+    <script src="src/scripts/sphere_3d.js" type="module"></script> -->
+
+    <!-- <script src="src/scripts/sphere_2d.js" type="module"></script> -->
+    <!-- <script src="src/scripts/plain_youtube-tutorial.js" type="module"></script> -->
+    <!-- <script src="src/scripts/plain_Bruno-Simon-tutorial.js" type="module"></script> -->
+    <!-- <script src="src/scripts/plain_moving-circle.js" type="module"></script> -->
+    <!-- <script src="src/scripts/plain_gradation.js" type="module"></script> -->
+    <!-- <script>
+    window.isWebGLDev = true;
+    </script>
+    <div id="webgl-container">
+    </div> -->
+    <header class="header">
+        <nav>
+            <ul>
+                <li>
+                    <a href="">
+                    <p class="header__nav-item">GALLERY</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    <p class="header__nav-item">ABOUT</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    <p class="header__nav-item">CONTACT</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1 class="hero__heading">
+            <span class="js-split hero__heading-text">
+                Hello
+            </span>
+            <span class="js-split hero__heading-text">
+                World
+            </span>
+        </h1>
+        <!-- <p class="hero__smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.(ウィンドウサイズを取得してbottom10くらいに置きたい)</p> -->
+    </section>
+    <!-- <section class="horizontal-scroll-wrapper gallery">
+        <div class="side-scroll-container container">
+            <h2 class="side-scroll-heading heading">
+                横にスクロールするセクション
+            </h2>
+            <div class="horizontal-scroll-container">
+                <ul class="panel_ul">
+                <li class="panel">Card</li>
+                <li class="panel">Card</li>
+                <li class="panel">Card</li>
+                <li class="panel">Card</li>
+                <li class="panel">Card</li>
+                <li class="panel">Card</li>
+            </ul>
+        </div>
+    </div>
+</section> -->
+<section class="side-scroll gallery">
+    <div class="side-scroll-container container">
+        <h2 class="side-scroll-heading heading">
+            横にスクロールするセクション
+        </h2>
+        <div class="side-scroll-list-wrapper">
+            <ul class="side-scroll-list">
+                <li class="side-scroll-item">Card</li>
+                <li class="side-scroll-item">Card</li>
+                <li class="side-scroll-item">Card</li>
+                <li class="side-scroll-item">Card</li>
+                <li class="side-scroll-item">Card</li>
+                <li class="side-scroll-item">Card</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="about">
+    <h2>ABOUT</h2>
+    <div class="about__item">
+        <div class="about__image"></div>
+        <div class="about__text">
+            <h3>NAMAE</h3>
+            <p class="about__p">orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <a href="">Instagram</a>
+    <a href="">X</a>
+</footer>
+    
+    <script src="src/scripts/spilitText.js" type="module"></script>
+    <script src="src/scripts/scrollTrigger.js" type="module"></script>
+    <!-- <script src="src/js/main.js" type="module"></script> -->
+</body>
 </html>
