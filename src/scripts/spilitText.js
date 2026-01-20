@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
-import { SplitText } from "gsap/src/SplitText";
-import { ScrollTrigger } from "gsap/src/ScrollTrigger";
+    
+import { SplitText } from "gsap/SplitText";
+
+gsap.registerPlugin(SplitText);
 
 const split = new SplitText(".js-split", { type: "chars" });
 
