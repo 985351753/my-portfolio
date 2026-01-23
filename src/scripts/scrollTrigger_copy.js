@@ -54,6 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrapperWidth = listWrapperEl.getBoundingClientRect().width;
     return listWidth - wrapperWidth;
   };
+  const isAndroid = /Android/i.test(navigator.userAgent);
+
+  const getEndValue = () => {
+    const base = getScrollLength();
+    const isSP = window.innerWidth < 768;
+    return base * (isSP ? 1.3 : 1);
+  };
 
   let horizontalTween;
 
@@ -64,9 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollTrigger: {
         trigger: wrapper,
         start: 'top top',
-        end: () => `+=${getScrollLength()}`,
+        end: () => `+=${getEndValue()}`,
         scrub: 1,
-        pin: true,
+        pin: !isAndroid,
         anticipatePin: 1,
         invalidateOnRefresh: true,
       }
