@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrapperWidth = listWrapperEl.getBoundingClientRect().width;
     return listWidth - wrapperWidth;
   };
-  const isAndroid = /Android/i.test(navigator.userAgent);
 
   const getEndValue = () => {
     const base = getScrollLength();
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         start: 'top top',
         end: () => `+=${getEndValue()}`,
         scrub: 1,
-        pin: !isAndroid,
+        pin: !true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
       }
