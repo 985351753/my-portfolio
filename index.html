@@ -3,28 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js スフィア浮遊デモ</title>
+    <title>PORTFOLIO</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="src/style/destyle.css">
     <link rel="stylesheet" href="src/style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- <canvas id="glcanvas"></canvas>
-    <script src="src/scripts/sphere_3d.js" type="module"></script> -->
-
-    <!-- <script src="src/scripts/sphere_2d.js" type="module"></script> -->
-    <!-- <script src="src/scripts/plain_youtube-tutorial.js" type="module"></script> -->
-    <!-- <script src="src/scripts/plain_Bruno-Simon-tutorial.js" type="module"></script> -->
-    <!-- <script src="src/scripts/plain_moving-circle.js" type="module"></script> -->
-    <!-- <script src="src/scripts/plain_gradation.js" type="module"></script> -->
-    <!-- <script>
-    window.isWebGLDev = true;
-    </script>
-    <div id="webgl-container">
-    </div> -->
     <header class="header">
-        <nav>
-            <ul>
+        <h1 class="header__logo">
+            <a href="">
+                <p class="header__logo-text">Portfolio</p>
+                <p class="header__logo-text-name">SHIZUKA TSUCHIE</p>
+            </a>
+        </h1>
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li>
+                    <a href="">
+                    <p class="header__nav-item">PRODUCTION</p>
+                    </a>
+                </li>
                 <li>
                     <a href="">
                     <p class="header__nav-item">GALLERY</p>
@@ -37,7 +40,7 @@
                 </li>
                 <li>
                     <a href="">
-                    <p class="header__nav-item">CONTACT</p>
+                    <p class="header__nav-item">SNS</p>
                     </a>
                 </li>
             </ul>
@@ -45,62 +48,61 @@
     </header>
     
     <section class="hero">
-        <h1 class="hero__heading">
-            <span class="js-split hero__heading-text">
-                Hello
-            </span>
-            <span class="js-split hero__heading-text">
-                World
-            </span>
+        <h1 class="js-split hero__heading">
+            <p class="hero__heading-text">
+                Portfolio
+            </p>
         </h1>
-        <!-- <p class="hero__smalltext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.(ウィンドウサイズを取得してbottom10くらいに置きたい)</p> -->
+        <img
+            src="/images/flower.png"
+            alt="flower"
+            class="hero__bg"
+        />
+        <img
+            src="/images/bg_2.png"
+            alt="bg"
+            class="hero__bg2"
+        />
     </section>
 
     <section class="site">
-        <h2>PRODUCTION</h2>
+        <h2 class="section__title">PRODUCTION</h2>
         <ul class="site__ul">
-            <li class="site__li"><a href=""><img src="Texturelabs_Wood_267M.jpg" alt="" srcset="" class="site__img"><h3>WEB SITE TITLE</h3><p>text</p></a></li>
-            <li class="site__li"><a href=""><img src="Texturelabs_Wood_267M.jpg" alt="" srcset="" class="site__img"><h3>WEB SITE TITLE</h3><p>text</p></a></li>
-            <li class="site__li"><a href=""><img src="Texturelabs_Wood_267M.jpg" alt="" srcset="" class="site__img"><h3>WEB SITE TITLE</h3><p>text</p></a></li>
+            <li class="site__li"><a href=""><img src="/images/WebSite-mock-up.jpg" alt="" srcset="" class="site__img"><h3 class="site__ul-title">飲食店WEBサイト</h3><p class="site__ul-text">デザイン、コーディング</p></a></li>
+            <li class="site__li"><a href=""><img src="/images/WebSite-mock-up.jpg" alt="" srcset="" class="site__img"><h3 class="site__ul-title">イベントチラシ</h3><p class="site__ul-text">デザイン</p></a></li>
+            <li class="site__li"><a href=""><img src="/images/WebSite-mock-up.jpg" alt="" srcset="" class="site__img"><h3 class="site__ul-title">名刺</h3><p class="site__ul-text">デザイン、3DCG</p></a></li>
         </ul>
     </section>
 
-<section class="side-scroll gallery">
-    <div class="side-scroll-container container">
-        <h2 class="side-scroll-heading heading">
+    <section class="gallery">
+        <h2 class="section__title">
             GALLERY
         </h2>
-        <div class="side-scroll-list-wrapper">
-            <ul class="side-scroll-list">
-                <li class="side-scroll-item">Card</li>
-                <li class="side-scroll-item">Card</li>
-                <li class="side-scroll-item">Card</li>
-                <li class="side-scroll-item">Card</li>
-                <li class="side-scroll-item">Card</li>
-                <li class="side-scroll-item">Card</li>
+        <div class="gallery__list-wrapper">
+            <ul class="gallery__ul">
+                <li class="gallery__li"><a href=""><img src="/images/WebSite-mock-up.jpg" alt="" class="gallery__img"><h3 class="gallery__ul-title">Blender</h3><p class="gallery__ul-text">3Dモデル</p></a></li>
+                <li class="gallery__li"><a href=""><img src="/images/WebSite-mock-up.jpg" alt="" class="gallery__img"><h3 class="gallery__ul-title">Illust</h3><p class="gallery__ul-text">Web用イラスト</p></a></li>
+                <li class="gallery__li"><a href=""><img src="/images/WebSite-mock-up.jpg" alt="" class="gallery__img"><h3 class="gallery__ul-title">Blender</h3><p class="gallery__ul-text">3Dモデル</p></a></li>
+                <li class="gallery__li"><a href=""><img src="/images/WebSite-mock-up.jpg" alt="" class="gallery__img"><h3 class="gallery__ul-title">Coding</h3><p class="gallery__ul-text">テキスト出現のバリエーション</p></a></li>
+                <li class="gallery__li"><a href=""><img src="/images/WebSite-mock-up.jpg" alt="" class="gallery__img"><h3 class="gallery__ul-title">Three.js</h3><p class="gallery__ul-text">マウス操作、ライティング</p></a></li>
             </ul>
         </div>
-    </div>
-</section>
-<section class="about">
-    <h2>ABOUT</h2>
-    <div class="about__item">
-        <div class="about__image"></div>
-        <div class="about__text">
-            <h3>NAMAE</h3>
-            <p class="about__p">orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    </section>
+    <section class="about">
+        <h2 class="section__title">ABOUT</h2>
+        <div class="about__item">
+            <div class="about__image"></div>
+            <div class="about__text">
+                <h3 class="gallery__ul-title">NAMAE</h3>
+                <p class="about__p">orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.orem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                <a href="" class="about__sns">Instagram</a>
+                <a href="" class="about__sns">X</a>
+            </div>
         </div>
-    </div>
-
-</section>
-
-<footer class="footer">
-    <a href="">Instagram</a>
-    <a href="">X</a>
-</footer>
-    
+    </section>
+    <footer></footer>
     <script src="src/scripts/spilitText.js" type="module"></script>
-    <script src="src/scripts/scrollTrigger.js" type="module"></script>
+    <!-- <script src="src/scripts/scrollTrigger.js" type="module"></script> -->
     <!-- <script src="src/js/main.js" type="module"></script> -->
 </body>
 </html>
