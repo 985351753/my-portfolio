@@ -1,0 +1,130 @@
+/* About Section */
+.detail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+.detail::before {
+  content: "";
+  display: inline-block;
+  width: 1000px;
+  height: 1000px;
+  position: absolute;
+  top: 10%;
+  right: -20%;
+  background-image: url(/images/bg_2.png); 
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+.detail::after {
+  content: "";
+  display: inline-block;
+  width: 1000px;
+  height: 1000px;
+  position: absolute;
+  bottom: 0;
+  left: -20%;
+  background-image: url(/images/bg_2.png); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.detail__item {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 3rem;
+  width: 100%;
+  padding-bottom: 5rem;
+}
+.detail__image {
+  grid-column-end: span 7;
+  aspect-ratio: 3/2;
+  background: center center / cover no-repeat url(../../../public/images/flower_2.jpg);
+}
+.detail__text {
+  grid-column-start: 8;
+  grid-column-end: span 4;
+  margin-top: 2rem;
+}
+.detail__title {
+  font-size: var(--font-size-2xl);
+}
+.detail__subtitle {
+  font-size: var(--font-size-md);
+}
+.detail__p {
+  margin-top: 2rem;
+  padding-bottom: 3rem;
+  font-family: var(--font-family-ter);
+}
+.detail__sns {
+  color: var(--fontcolor-sec);
+  padding: .5rem 3rem;
+  border: 1px solid var(--fontcolor-sec);
+  border-radius: 5rem;
+  background-color: #fff;
+  font-size: var(--font-size-md);
+}
+.detail__image-small {
+  padding-top: 5rem;
+  width: 80%;
+}
+.detail__button-parts {
+  color: var(--fontcolor-sec);
+  padding: .5rem 3rem;
+  border: 1px solid  var(--fontcolor-sec);
+  border-radius: 5rem;
+  background-color: #fff;
+  font-size: var(--font-size-md);
+}
+.detail__button {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5rem;
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .detail__item {
+    display: flex;
+    flex-direction: column;
+  }
+  .detail::before {
+    width: 500px;
+    height: 500px;
+    top: -5%;
+    right: -40%;
+  }
+  .detail::after {
+    width: 500px;
+    height: 500px;
+    bottom: 0;
+    left: -30%;
+  }
+  .detail__text {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .detail__sns {
+    font-size: var(--font-size-base);
+  }
+  
+  .detail__image-small {
+    padding-top: 2rem;
+    width: 90%;
+  }
+  
+  .detail__button-parts {
+    padding: .3rem 1.3rem;
+    border-radius: 5rem;
+    font-size: var(--font-size-sm);
+  }
+  
+
+
+}
