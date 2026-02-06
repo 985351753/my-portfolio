@@ -312,6 +312,12 @@ body {
 }
 /* Responsive Design */
 @media screen and (max-width: 768px) {
+  #stalker {
+    display: none;
+  }
+  #stalker span {
+    display: none;
+  }
   .ul-title {
     font-size: 1.25rem;
   }
