@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Generated files
+*.min.css
+src/styles/Generic/_reset.scss

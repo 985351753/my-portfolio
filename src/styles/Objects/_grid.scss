@@ -1,0 +1,39 @@
+@use "@/styles/abstracts" as *;
+
+/// グリッドレイアウトクラス
+///
+/// @prop {String} --_grid-layout - カラムの直接指定（例: 1fr 100px 1fr）。指定時は repeat 計算を無視。
+/// @prop {String | Number} --_grid-repeat [auto-fit] - PCのカラム数指定（数値 or auto-fit / auto-fill）。
+/// @prop {String} --_grid-min-size [0px] - PCのカラム最小幅。
+/// @prop {String} --_grid-gap [0px] - PCのアイテム間の溝。
+/// @prop {String} --_grid-layout-sp - SP用のカラム直接指定。未指定時は PC の値を継承。
+/// @prop {String | Number} --_grid-repeat-sp [var(--_grid-repeat)] - SPのカラム数指定。
+/// @prop {String} --_grid-min-size-sp [var(--_grid-min-size)] - SPのカラム最小幅。
+/// @prop {String} --_grid-gap-sp [var(--_grid-gap)] - SPのアイテム間の溝。
+///
+/// @example
+///   <div class="o-grid" style="--_grid-repeat: 3; --_grid-gap: 20px;">...</div>
+///   <div class="o-grid" style="--_grid-min-size: 200px; --_grid-repeat-sp: 1;">...</div>
+.o-grid {
+  --_repeat: var(--_grid-repeat, auto-fit);
+  --_size: min(var(--_grid-min-size, 0px), 100%);
+  --_gap: var(--_grid-gap, 0px);
+
+  display: grid;
+  grid-template-columns: var(
+    --_grid-layout,
+    repeat(var(--_repeat), minmax(var(--_size), 1fr))
+  );
+  gap: var(--_gap);
+
+  @include responsive("md") {
+    --_repeat: var(--_grid-repeat-sp, var(--_grid-repeat, auto-fit));
+    --_size: min(var(--_grid-min-size-sp, var(--_grid-min-size, 0px)), 100%);
+    --_gap: var(--_grid-gap-sp, var(--_grid-gap, 0px));
+
+    grid-template-columns: var(
+      --_grid-layout-sp,
+      var(--_grid-layout, repeat(var(--_repeat), minmax(var(--_size), 1fr)))
+    );
+  }
+}

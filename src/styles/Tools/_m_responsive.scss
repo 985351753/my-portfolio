@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:string";
+@use "../Settings/" as *;
+
+@mixin responsive($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media screen and (#{string.unquote(map.get($breakpoints, $breakpoint))}) {
+      @content;
+    }
+  }
+  @else {
+    @error "指定されたブレークポイントは定義されていません。" + "指定できるブレークポイントは次のとおりです。 -> #{map.keys($breakpoints)}";
+  }
+}
+
+@mixin pc {
+  @media screen and (width >= 768px) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @include responsive('md') {
+    @content;
+  }
+}

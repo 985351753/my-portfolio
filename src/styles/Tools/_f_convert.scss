@@ -1,0 +1,10 @@
+// 単位変換用の関数
+
+// pxをremに変換
+@function rem($px, $base: 16) {
+  @return ($px / $base) * 1rem;
+}
+
+@function remFz($px, $base: 16) {
+  @return calc(#{$px / $base * 1rem} * var(--fz));
+}

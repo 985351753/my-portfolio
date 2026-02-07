@@ -1,0 +1,81 @@
+---
+import "../styles/style.scss";
+import ScriptIndex from "./script.astro";
+import { siteMeta, generatePageMeta, type PageMeta } from "../data/meta";
+import { getPageMeta, type PageSlug } from "../data/pages";
+import Header from "../components/layout/header.astro";
+
+export interface Props extends PageMeta {
+  pageSlug?: PageSlug;
+}
+
+// pageSlugが渡された場合はpages.tsから取得、そうでなければpropsを使用
+const pageMetaInput = Astro.props.pageSlug
+  ? getPageMeta(Astro.props.pageSlug)
+  : Astro.props;
+
+const pageMeta = generatePageMeta(pageMetaInput);
+
+// OGP用の絶対URL生成
+const ogImageUrl = pageMeta.ogImage.startsWith("http")
+  ? pageMeta.ogImage
+  : `${siteMeta.siteUrl}${pageMeta.ogImage}`
+      .replace(/\/+/g, "/")
+      .replace(":/", "://");
+
+const canonicalUrl =
+  pageMeta.canonical ||
+  `${siteMeta.siteUrl}${Astro.url.pathname}`
+    .replace(/\/+/g, "/")
+    .replace(":/", "://");
+---
+
+<!doctype html>
+<html lang={siteMeta.locale.split("_")[0]}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Primary Meta Tags -->
+    <title>{pageMeta.title}</title>
+    <meta name="title" content={pageMeta.title} />
+    <meta name="description" content={pageMeta.description} />
+    {pageMeta.noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={siteMeta.favicon} />
+    {
+      siteMeta.appleTouchIcon && (
+        <link rel="apple-touch-icon" href={siteMeta.appleTouchIcon} />
+      )
+    }
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={pageMeta.ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={pageMeta.title} />
+    <meta property="og:description" content={pageMeta.description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={siteMeta.locale} />
+    <meta property="og:site_name" content={siteMeta.title} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content={siteMeta.twitterCard} />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={pageMeta.title} />
+    <meta property="twitter:description" content={pageMeta.description} />
+    <meta property="twitter:image" content={ogImageUrl} />
+
+    <ScriptIndex />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <script src="/scripts/animation.js" type="module"></script>
+    <script src="/scripts/cursor.js" type="module"></script>
+    <script src="/scripts/spilitText.js" type="module"></script>
+  </body>
+</html>

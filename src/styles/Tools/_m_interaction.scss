@@ -1,0 +1,12 @@
+// hover effect (タッチデバイス除外)
+@mixin hover {
+  @media (any-hover) {
+    &:where(:any-link, :enabled, summary):hover {
+      @content;
+    }
+  }
+
+  &:focus-visible {
+    @content;
+  }
+}

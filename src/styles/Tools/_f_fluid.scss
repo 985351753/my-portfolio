@@ -1,0 +1,94 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:list";
+
+/// 流体タイポグラフィ用の clamp() を生成する関数
+/// @param {Number} $min-font-size - 最小フォントサイズ (px)
+/// @param {Number} $max-font-size - 最大フォントサイズ (px)
+/// @param {Number} $min-width [375] - 最小ビューポート幅 (px)
+/// @param {Number} $max-width [1280] - 最大ビューポート幅 (px)
+/// @param {Number} $base-font-size [16] - ベースフォントサイズ (px)
+/// @param {String} $unit [vw] - 相対単位 (vw, svi, vi, lvi, cqi など)
+/// @return {String} - clamp() 関数の文字列
+/// @example
+///   font-size: fluid(14, 16);
+///   font-size: fluid(14, 20, 375, 1280, 16, cqi);
+@function fluid(
+  $min-font-size,
+  $max-font-size,
+  $min-width: 375,
+  $max-width: 1280,
+  $base-font-size: 16,
+  $unit: vw
+) {
+  // slope (傾き) と intercept (切片) の計算
+  $slope: math.div($max-font-size - $min-font-size, $max-width - $min-width);
+  $intercept: $min-font-size - $slope * $min-width;
+
+  // rem への変換
+  $min: math.div($min-font-size, $base-font-size) * 1rem;
+
+  // calc() 用の値を事前計算
+  $slope-value: $slope * 100;
+  $intercept-value: math.div($intercept, $base-font-size);
+  $preferred: calc(#{$slope-value}#{$unit} + #{$intercept-value}rem);
+  $max: math.div($max-font-size, $base-font-size) * 1rem;
+
+  @return clamp(#{$min}, #{$preferred}, #{$max});
+}
+
+/// 複数のブレークポイントで異なるスロープを持つ流体タイポグラフィ（zoom機能しない。）
+/// @param {Map} $sizes - ブレークポイントとフォントサイズのマップ
+/// @param {String} $property [font-size] - 適用するプロパティ
+/// @param {Number} $base-font-size [16] - ベースフォントサイズ (px)
+/// @param {String} $unit [vw] - 相対単位 (vw, svi, vi, lvi, cqi など)
+/// @example
+///   @include fluid-stepped(
+///     $sizes: (375: 10, 1280: 20, 1920: 40)
+///   );
+@mixin fluid-stepped(
+  $sizes,
+  $property: font-size,
+  $base-font-size: 16,
+  $unit: vw
+) {
+  $breakpoints: map.keys($sizes);
+  $count: list.length($breakpoints);
+
+  @if $count < 2 {
+    @error "fluid-stepped requires at least 2 breakpoints";
+  }
+
+  // 各区間でメディアクエリと fluid() を生成
+  @for $i from 1 through $count - 1 {
+    $min-width: list.nth($breakpoints, $i);
+    $max-width: list.nth($breakpoints, $i + 1);
+    $min-size: map.get($sizes, $min-width);
+    $max-size: map.get($sizes, $max-width);
+    $fluid-value: fluid(
+      $min-size,
+      $max-size,
+      $min-width,
+      $max-width,
+      $base-font-size,
+      $unit
+    );
+
+    @if $i == 1 {
+      // 最初の区間（最小幅以下を含む）
+      @media (max-width: #{$max-width}px) {
+        #{$property}: #{$fluid-value};
+      }
+    } @else if $i == $count - 1 {
+      // 最後の区間（最大幅以上を含む）
+      @media (min-width: #{$min-width + 1}px) {
+        #{$property}: #{$fluid-value};
+      }
+    } @else {
+      // 中間の区間
+      @media (min-width: #{$min-width + 1}px) and (max-width: #{$max-width}px) {
+        #{$property}: #{$fluid-value};
+      }
+    }
+  }
+}
