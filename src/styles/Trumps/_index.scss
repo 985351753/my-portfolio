@@ -1,0 +1,14 @@
+@use "../Tools/" as *;
+
+// ユーティリティクラス（最優先）
+.u-sp {
+  @include pc {
+    display: none;
+  }
+}
+
+.u-pc {
+  @include sp {
+    display: none;
+  }
+}

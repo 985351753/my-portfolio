@@ -1,0 +1,7 @@
+$breakpoints: (
+  'xxl': 'width < 1400px',
+  'xl': 'width < 1200px', // tabletの基準
+  'lg': 'width < 992px',
+  'md': 'width < 768px', // mobileの基準
+  'sm': 'width < 576px'
+) !default;
